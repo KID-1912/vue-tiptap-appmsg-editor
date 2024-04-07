@@ -1,0 +1,49 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+html,
+body {
+  width: 100%;
+  min-width: 1400px;
+  height: 100%;
+  color: #353535;
+  font-size: 14px;
+  overflow: auto;
+}
+
+body {
+  background-color: #f5f5f5;
+}
+
+button {
+  border: none;
+  font-size: 14px;
+  background-color: unset;
+}
+
+svg {
+  width: 1em;
+  height: 1em;
+  vertical-align: bottom;
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #c4c4c4;
+  border-radius: 3px;
+}
