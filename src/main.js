@@ -1,8 +1,10 @@
 import "virtual:windi.css";
 import "@/assets/styles/reset.css";
 import "@/assets/styles/global.scss";
+import SvgIcon from "@/components/SvgIcon/SvgIcon.js";
 
-import { createApp } from "vue";
 import App from "./App.vue";
 
-createApp(App).mount("#app");
+const app = createApp(App);
+app.component("SvgIcon", SvgIcon);
+app.mount("#app");

@@ -71,3 +71,4 @@ vite-pure-template
 
 - unplugin-auto-import
 
+eslint auto-import兼容

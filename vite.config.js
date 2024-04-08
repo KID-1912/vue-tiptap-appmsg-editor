@@ -31,6 +31,10 @@ export default defineConfig(({ command, mode }) => {
       vue(),
       AutoImport({
         imports: ["vue", "vue-router"],
+        eslintrc: {
+          enabled: true,
+          filepath: "./eslintrc-auto-import.json",
+        },
       }),
       svgLoader(),
       WindiCSS(),

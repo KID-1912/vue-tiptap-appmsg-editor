@@ -1,57 +1,24 @@
-<script setup></script>
+<script setup>
+import UndoButton from "./components/undo-button.vue";
+import RedoButton from "./components/redo-button.vue";
+import ClearFormatButton from "./components/clear-format-button.vue";
+import PainterButton from "./components/painter-button.vue";
+import FontsizeDropdown from "./components/fontsize-dropdown.vue";
+</script>
 
 <template>
   <div class="toolbar-wrapper">
     <div id="toolbar">
       <div class="btn-group">
-        <button class="edit-btn undo">
-          <svg><use href="#undo" /></svg>
-        </button>
-        <button class="edit-btn redo">
-          <svg><use href="#redo" /></svg>
-        </button>
+        <undo-button class="edit-btn" />
+        <redo-button class="edit-btn" />
       </div>
       <div class="btn-group">
-        <button class="edit-btn clear">
-          <svg><use href="#clear-format" /></svg>
-        </button>
-        <button class="edit-btn painter">
-          <svg><use href="#brush" /></svg>
-        </button>
+        <clear-format-button class="edit-btn" />
+        <painter-button class="edit-btn" />
       </div>
       <div class="btn-group">
-        <div class="dropdown dropdown-size edit-btn">
-          <button class="dropdown-toggle">
-            <span class="size">17px</span>
-            <i class="icon-arrow"></i>
-          </button>
-          <div class="dropdown-menu">
-            <div class="menu-item" data-size="12px" style="font-size: 12px">
-              12px
-            </div>
-            <div class="menu-item" data-size="14px" style="font-size: 14px">
-              14px
-            </div>
-            <div class="menu-item" data-size="15px" style="font-size: 15px">
-              15px
-            </div>
-            <div class="menu-item" data-size="16px" style="font-size: 16px">
-              16px
-            </div>
-            <div class="menu-item" data-size="17px" style="font-size: 17px">
-              17px
-            </div>
-            <div class="menu-item" data-size="18px" style="font-size: 18px">
-              18px
-            </div>
-            <div class="menu-item" data-size="20px" style="font-size: 20px">
-              20px
-            </div>
-            <div class="menu-item" data-size="24px" style="font-size: 24px">
-              24px
-            </div>
-          </div>
-        </div>
+        <fontsize-dropdown class="edit-btn" />
         <button class="edit-btn bold">
           <svg><use href="#bold" /></svg>
         </button>
@@ -242,7 +209,7 @@
   </div>
 </template>
 
-<style scoped>
+<style lang="less" scoped>
 /* toolbar工具栏样式 */
 .toolbar-wrapper {
   display: flex;
@@ -260,16 +227,16 @@
   margin: 0 auto;
 }
 
-#toolbar .btn-group {
+.btn-group {
   display: flex;
   padding: 0 6px;
 }
 
-#toolbar .btn-group + .btn-group {
+.btn-group + .btn-group {
   border-left: 1px solid #ddd;
 }
 
-#toolbar .edit-btn {
+.edit-btn {
   height: 24px;
   padding: 0 3px;
   color: #4a4a51;
@@ -278,15 +245,117 @@
   border-radius: 2px;
 }
 
-#toolbar .edit-btn:hover {
+.edit-btn:hover {
   background-color: rgba(0, 0, 0, 0.07);
 }
 
-#toolbar .edit-btn.active {
+.edit-btn.active {
   color: #07c160;
 }
 
-#toolbar .edit-btn + .edit-btn {
+.edit-btn + .edit-btn {
   margin-left: 6px;
+}
+
+/* 颜色选择器 */
+.picker {
+  position: relative;
+}
+
+.picker .colorlump {
+  position: absolute;
+  display: inline-block;
+  height: 2px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  border-radius: 1px;
+}
+
+/* 下拉菜单 */
+:deep(.dropdown) {
+  cursor: default;
+
+  .dropdown-toggle {
+    padding: 0 2px;
+    border: none;
+    color: inherit;
+    font-size: inherit;
+    background-color: unset;
+  }
+
+  .dropdown-toggle.disabled {
+    cursor: not-allowed;
+    color: #aaa;
+  }
+
+  .dropdown-toggle .icon-arrow {
+    display: inline-block;
+    width: 0;
+    height: 0px;
+    border-width: 4px 4px 0 4px;
+    border-style: solid;
+    vertical-align: middle;
+    border-color: currentColor transparent transparent transparent;
+    transform: scale(0.8);
+    margin-left: 4px;
+  }
+
+  .dropdown-menu {
+    min-width: 120px;
+    padding: 6px 0;
+    line-height: 1.2;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .menu-item {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    padding: 6px 12px;
+  }
+
+  .menu-item:hover {
+    background-color: #fafafa;
+  }
+
+  .menu-item.active {
+    color: #07c160;
+  }
+
+  .menu-item svg {
+    color: inherit;
+    margin-right: 10px;
+  }
+}
+
+/* 表情菜单 start*/
+.dropdown-emoji .emoji-list {
+  display: flex;
+  flex-wrap: wrap;
+  width: 408px;
+  max-height: 440px;
+  padding: 6px 12px;
+  overflow-y: auto;
+}
+
+.dropdown-emoji .emoji-item {
+  padding: 5px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.dropdown-emoji .emoji-item:hover {
+  transition: all 0.3s;
+  background-color: rgba(0 0 0 / 5%);
+}
+
+.dropdown-emoji .emoji-item .icon-emoji {
+  width: 32px;
+  height: 32px;
+  background-size: 100% auto;
+  background-image: url("@/src/images/sprite/emoji_sprite.png");
 }
 </style>
