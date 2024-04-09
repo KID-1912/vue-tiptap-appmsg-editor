@@ -11,6 +11,7 @@ import StrikeButton from "./components/strike-button.vue";
 import ColorPickerButton from "./components/color-picker-button.vue";
 import HighlightPickerButton from "./components/highlight-picker-button.vue";
 import AlignDropdown from "./components/align-dropdown.vue";
+import TopRowSpacingDropdown from "./components/top-row-spacing-dropdown.vue";
 </script>
 
 <template>
@@ -35,21 +36,7 @@ import AlignDropdown from "./components/align-dropdown.vue";
       </div>
       <div class="btn-group">
         <align-dropdown class="edit-btn" />
-        <div class="dropdown dropdown-topRowSpacing edit-btn">
-          <button class="dropdown-toggle">
-            <svg><use href="#rowSpacingTop" /></svg>
-            <i class="icon-arrow"></i>
-          </button>
-          <div class="dropdown-menu">
-            <div class="menu-item active" data-value="0px">0（默认）</div>
-            <div class="menu-item" data-value="8px">8</div>
-            <div class="menu-item" data-value="16px">16</div>
-            <div class="menu-item" data-value="24px">24</div>
-            <div class="menu-item" data-value="32px">32</div>
-            <div class="menu-item" data-value="40px">40</div>
-            <div class="menu-item" data-value="48px">48</div>
-          </div>
-        </div>
+        <top-row-spacing-dropdown class="edit-btn" />
         <div class="dropdown dropdown-bottomRowSpacing edit-btn">
           <button class="dropdown-toggle">
             <svg><use href="#rowSpacingBottom" /></svg>
