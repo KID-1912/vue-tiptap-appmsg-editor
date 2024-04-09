@@ -1,0 +1,16 @@
+export const COLOR_LIST = [
+  "#ffffff",
+  "#ffacaa",
+  "#fffb00",
+  "#73fa79",
+  "#78acfe",
+  "#d7aba9",
+  "#ffda51",
+  "#00d5ff",
+  "#888888",
+  "#7a4442",
+  "#ff4c00",
+  "#ffa900",
+  "#3da742",
+  "#000000",
+];

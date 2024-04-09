@@ -5,5 +5,6 @@ export default defineConfig({
   corePlugins: {
     // container: false, // disable container
   },
+  preflight: false,
   plugins: [LineClamp],
 });

@@ -33,6 +33,7 @@
     "windicss": "^3.5.6"
   },
   "dependencies": {
+    "@simonwep/pickr": "^1.9.0",
     "@tiptap/core": "^2.1.12",
     "@tiptap/extension-code-block": "^2.1.13",
     "@tiptap/extension-color": "^2.1.12",
@@ -44,7 +45,7 @@
     "@tiptap/pm": "^2.1.12",
     "@tiptap/starter-kit": "^2.1.12",
     "@types/vue-router": "^2.0.0",
-    "lodash-es": "^4.17.20",
+    "lodash-es": "^4.17.21",
     "pinia": "^2.1.7",
     "tiptap-extension-bullet-list": "^1.0.0",
     "tiptap-extension-float": "^1.0.0",

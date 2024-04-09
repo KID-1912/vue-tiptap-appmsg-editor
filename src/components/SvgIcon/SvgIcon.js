@@ -1,6 +1,10 @@
 const svgModules = import.meta.glob("./svg/**/*.svg", {
   query: "?component",
 });
+const svgComponents = {};
+for (let key in svgModules) {
+  svgComponents[key] = defineAsyncComponent(svgModules[key]);
+}
 
 export default defineComponent({
   name: "SvgIcon",
@@ -8,9 +12,12 @@ export default defineComponent({
     name: { type: String, default: "" },
   },
   setup(props) {
-    const SvgComponent = defineAsyncComponent(
-      svgModules[`./svg/${props.name}.svg`]
+    const SvgComponent = shallowRef(null);
+    watch(
+      () => props.name,
+      () => (SvgComponent.value = svgComponents[`./svg/${props.name}.svg`]),
+      { immediate: true }
     );
-    return () => h(SvgComponent);
+    return () => h(SvgComponent.value);
   },
 });

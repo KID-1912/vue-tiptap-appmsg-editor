@@ -22,43 +22,42 @@ import Float from "tiptap-extension-float";
 import Margin from "tiptap-extension-margin";
 import Resizable from "tiptap-extension-resizable";
 
-export let editor;
-export const createEditor = function (ele) {
-  editor = new Editor({
-    element: ele,
-    extensions: [
-      TrailingNode,
-      StarterKit.configure({
-        bulletList: false,
-        orderedList: false,
-        codeBlock: false,
-      }),
-      Underline,
-      TextStyle,
-      Color,
-      FontSize,
-      TextAlign.configure({
-        types: ["paragraph"],
-        defaultAlignment: "justify",
-      }),
-      Highlight.configure({ multicolor: true }),
-      Link.configure({ openOnClick: false, HTMLAttributes: { rel: "" } }),
-      CodeBlock.configure({ HTMLAttributes: { class: "code-snippet" } }),
-      Resizable.configure({ types: ["image", "video"] }),
-      Image.configure({ inline: true, allowBase64: true }),
-      Video.configure({ allowBase64: true }),
-      Iframe,
-      Section,
-      ImageLink,
-      Hr,
-      BulletList.configure({ HTMLAttributes: { class: "list-paddingleft-1" } }),
-      OrderedList.configure({
-        HTMLAttributes: { class: "list-paddingleft-1" },
-      }),
-      LineHeight,
-      Float,
-      Margin,
-    ],
-  });
-  return editor;
-};
+const $ele = document.createElement("div");
+$ele.classList.add("tiptap-editor");
+
+export const editor = new Editor({
+  element: $ele,
+  extensions: [
+    TrailingNode,
+    StarterKit.configure({
+      bulletList: false,
+      orderedList: false,
+      codeBlock: false,
+    }),
+    Underline,
+    TextStyle,
+    Color,
+    FontSize,
+    TextAlign.configure({
+      types: ["paragraph"],
+      defaultAlignment: "justify",
+    }),
+    Highlight.configure({ multicolor: true }),
+    Link.configure({ openOnClick: false, HTMLAttributes: { rel: "" } }),
+    CodeBlock.configure({ HTMLAttributes: { class: "code-snippet" } }),
+    Resizable.configure({ types: ["image", "video"] }),
+    Image.configure({ inline: true, allowBase64: true }),
+    Video.configure({ allowBase64: true }),
+    Iframe,
+    Section,
+    ImageLink,
+    Hr,
+    BulletList.configure({ HTMLAttributes: { class: "list-paddingleft-1" } }),
+    OrderedList.configure({
+      HTMLAttributes: { class: "list-paddingleft-1" },
+    }),
+    LineHeight,
+    Float,
+    Margin,
+  ],
+});

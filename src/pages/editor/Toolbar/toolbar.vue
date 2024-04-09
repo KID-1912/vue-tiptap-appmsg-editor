@@ -4,6 +4,13 @@ import RedoButton from "./components/redo-button.vue";
 import ClearFormatButton from "./components/clear-format-button.vue";
 import PainterButton from "./components/painter-button.vue";
 import FontsizeDropdown from "./components/fontsize-dropdown.vue";
+import BoldButton from "./components/bold-button.vue";
+import ItalicButton from "./components/italic-button.vue";
+import UnderlineButton from "./components/underline-button.vue";
+import StrikeButton from "./components/strike-button.vue";
+import ColorPickerButton from "./components/color-picker-button.vue";
+import HighlightPickerButton from "./components/highlight-picker-button.vue";
+import AlignDropdown from "./components/align-dropdown.vue";
 </script>
 
 <template>
@@ -19,48 +26,15 @@ import FontsizeDropdown from "./components/fontsize-dropdown.vue";
       </div>
       <div class="btn-group">
         <fontsize-dropdown class="edit-btn" />
-        <button class="edit-btn bold">
-          <svg><use href="#bold" /></svg>
-        </button>
-        <button class="edit-btn italic">
-          <svg><use href="#italic" /></svg>
-        </button>
-        <button class="edit-btn underline">
-          <svg><use href="#underline" /></svg>
-        </button>
-        <button class="edit-btn strike">
-          <svg><use href="#strike" /></svg>
-        </button>
-        <button class="edit-btn picker color-picker">
-          <svg><use href="#font" /></svg>
-          <i class="colorlump"></i>
-        </button>
-        <button class="edit-btn picker highlight-picker">
-          <svg><use href="#highlight" /></svg>
-          <i class="colorlump"></i>
-        </button>
+        <bold-button class="edit-btn" />
+        <italic-button class="edit-btn" />
+        <underline-button class="edit-btn" />
+        <strike-button class="edit-btn" />
+        <color-picker-button class="edit-btn" />
+        <highlight-picker-button class="edit-btn" />
       </div>
       <div class="btn-group">
-        <div class="dropdown dropdown-align edit-btn">
-          <button class="dropdown-toggle">
-            <svg style="color: #07c160"><use href="#justify" /></svg>
-            <i class="icon-arrow"></i>
-          </button>
-          <div class="dropdown-menu">
-            <div class="menu-item" data-align="left">
-              <svg><use href="#left" /></svg>左对齐
-            </div>
-            <div class="menu-item" data-align="center">
-              <svg><use href="#center" /></svg>居中对齐
-            </div>
-            <div class="menu-item" data-align="right">
-              <svg><use href="#right" /></svg>右对齐
-            </div>
-            <div class="menu-item" data-align="justify">
-              <svg><use href="#justify" /></svg>两端对齐
-            </div>
-          </div>
-        </div>
+        <align-dropdown class="edit-btn" />
         <div class="dropdown dropdown-topRowSpacing edit-btn">
           <button class="dropdown-toggle">
             <svg><use href="#rowSpacingTop" /></svg>
@@ -241,7 +215,7 @@ import FontsizeDropdown from "./components/fontsize-dropdown.vue";
   padding: 0 3px;
   color: #4a4a51;
   font-size: 18px;
-  line-height: 1;
+  line-height: 24px;
   border-radius: 2px;
 }
 
@@ -255,21 +229,6 @@ import FontsizeDropdown from "./components/fontsize-dropdown.vue";
 
 .edit-btn + .edit-btn {
   margin-left: 6px;
-}
-
-/* 颜色选择器 */
-.picker {
-  position: relative;
-}
-
-.picker .colorlump {
-  position: absolute;
-  display: inline-block;
-  height: 2px;
-  width: 18px;
-  left: 3px;
-  bottom: 3px;
-  border-radius: 1px;
 }
 
 /* 下拉菜单 */
@@ -328,6 +287,20 @@ import FontsizeDropdown from "./components/fontsize-dropdown.vue";
   .menu-item svg {
     color: inherit;
     margin-right: 10px;
+  }
+}
+
+/* 颜色选择器 */
+:deep(.picker) {
+  position: relative;
+  .color-lump {
+    position: absolute;
+    display: inline-block;
+    height: 2px;
+    width: 18px;
+    left: 3px;
+    bottom: 2px;
+    border-radius: 1px;
   }
 }
 

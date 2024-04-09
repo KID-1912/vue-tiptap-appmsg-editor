@@ -1,19 +1,21 @@
 <script setup>
 import "@/assets/styles/tiptap-appmsg.css";
 import Toolbar from "./Toolbar/toolbar.vue";
-import { createEditor } from "./editor.js";
+import { editor } from "./editor.js";
 
+const editorContainerRef = ref();
 onMounted(() => {
-  const $editor = document.querySelector(".tiptap-editor");
-  createEditor($editor);
+  editorContainerRef.value.insertBefore(
+    editor.options.element,
+    editorContainerRef.value.querySelector(".footer")
+  );
 });
 </script>
 
 <template>
   <toolbar />
   <div class="editor-wrapper">
-    <div class="editor-container">
-      <div class="tiptap-editor" style="font-size: 17px"></div>
+    <div ref="editorContainerRef" class="editor-container">
       <div class="footer">
         <div class="info">
           <!-- <div class="save-time">20:23&emsp;已保存</div> -->
@@ -30,7 +32,7 @@ onMounted(() => {
   </div>
 </template>
 
-<style scoped>
+<style>
 /* 编辑器 */
 .editor-wrapper {
   height: 100%;

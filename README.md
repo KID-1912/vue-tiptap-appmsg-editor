@@ -72,3 +72,5 @@ vite-pure-template
 - unplugin-auto-import
 
 eslint auto-import兼容
+
+lodash-es
