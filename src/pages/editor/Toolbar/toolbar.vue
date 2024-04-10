@@ -1,24 +1,24 @@
 <script setup>
-import UndoButton from "./components/undo-button.vue";
-import RedoButton from "./components/redo-button.vue";
-import ClearFormatButton from "./components/clear-format-button.vue";
-import PainterButton from "./components/painter-button.vue";
-import FontsizeDropdown from "./components/fontsize-dropdown.vue";
-import BoldButton from "./components/bold-button.vue";
-import ItalicButton from "./components/italic-button.vue";
-import UnderlineButton from "./components/underline-button.vue";
-import StrikeButton from "./components/strike-button.vue";
-import ColorPickerButton from "./components/color-picker-button.vue";
-import HighlightPickerButton from "./components/highlight-picker-button.vue";
-import AlignDropdown from "./components/align-dropdown.vue";
-import TopRowSpacingDropdown from "./components/top-row-spacing-dropdown.vue";
-import BottomRowSpacingDropdown from "./components/bottom-row-spacing-dropdown.vue";
-import LineHeightDropdown from "./components/line-height-dropdown.vue";
-import DividerButton from "./components/divider-button.vue";
-import ListDropdown from "./components/list-dropdown.vue";
-import FloatDropdown from "./components/float-dropdown.vue";
-import CodeButton from "./components/code-button.vue";
-import EmojiDropdown from "./components/emoji-dropdown.vue";
+import UndoButton from "./button/undo-button.vue";
+import RedoButton from "./button/redo-button.vue";
+import ClearFormatButton from "./button/clear-format-button.vue";
+import PainterButton from "./button/painter-button.vue";
+import BoldButton from "./button/bold-button.vue";
+import ItalicButton from "./button/italic-button.vue";
+import UnderlineButton from "./button/underline-button.vue";
+import StrikeButton from "./button/strike-button.vue";
+import ColorPickerButton from "./button/color-picker-button.vue";
+import HighlightPickerButton from "./button/highlight-picker-button.vue";
+import DividerButton from "./button/divider-button.vue";
+import CodeButton from "./button/code-button.vue";
+import FontsizeDropdown from "./dropdown/fontsize-dropdown.vue";
+import AlignDropdown from "./dropdown/align-dropdown.vue";
+import TopRowSpacingDropdown from "./dropdown/top-row-spacing-dropdown.vue";
+import BottomRowSpacingDropdown from "./dropdown/bottom-row-spacing-dropdown.vue";
+import LineHeightDropdown from "./dropdown/line-height-dropdown.vue";
+import ListDropdown from "./dropdown/list-dropdown.vue";
+import FloatDropdown from "./dropdown/float-dropdown.vue";
+import EmojiDropdown from "./dropdown/emoji-dropdown.vue";
 </script>
 
 <template>
