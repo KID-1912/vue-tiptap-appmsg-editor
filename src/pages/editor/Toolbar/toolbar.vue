@@ -12,6 +12,13 @@ import ColorPickerButton from "./components/color-picker-button.vue";
 import HighlightPickerButton from "./components/highlight-picker-button.vue";
 import AlignDropdown from "./components/align-dropdown.vue";
 import TopRowSpacingDropdown from "./components/top-row-spacing-dropdown.vue";
+import BottomRowSpacingDropdown from "./components/bottom-row-spacing-dropdown.vue";
+import LineHeightDropdown from "./components/line-height-dropdown.vue";
+import DividerButton from "./components/divider-button.vue";
+import ListDropdown from "./components/list-dropdown.vue";
+import FloatDropdown from "./components/float-dropdown.vue";
+import CodeButton from "./components/code-button.vue";
+import EmojiDropdown from "./components/emoji-dropdown.vue";
 </script>
 
 <template>
@@ -37,134 +44,15 @@ import TopRowSpacingDropdown from "./components/top-row-spacing-dropdown.vue";
       <div class="btn-group">
         <align-dropdown class="edit-btn" />
         <top-row-spacing-dropdown class="edit-btn" />
-        <div class="dropdown dropdown-bottomRowSpacing edit-btn">
-          <button class="dropdown-toggle">
-            <svg><use href="#rowSpacingBottom" /></svg>
-            <i class="icon-arrow"></i>
-          </button>
-          <div class="dropdown-menu">
-            <div class="menu-item" data-value="0px">0</div>
-            <div class="menu-item" data-value="8px">8</div>
-            <div class="menu-item" data-value="16px">16</div>
-            <div class="menu-item active" data-value="24px">24（默认）</div>
-            <div class="menu-item" data-value="32px">32</div>
-            <div class="menu-item" data-value="40px">40</div>
-            <div class="menu-item" data-value="48px">48</div>
-          </div>
-        </div>
-        <div class="dropdown dropdown-lineHeight edit-btn">
-          <button class="dropdown-toggle">
-            <svg><use href="#lineHeight" /></svg>
-            <i class="icon-arrow"></i>
-          </button>
-          <div class="dropdown-menu">
-            <div class="menu-item" data-value="1em">1</div>
-            <div class="menu-item" data-value="1.5em">1.5</div>
-            <div class="menu-item active" data-value="1.6em">1.6（默认）</div>
-            <div class="menu-item" data-value="1.75em">1.75</div>
-            <div class="menu-item" data-value="2em">2</div>
-            <div class="menu-item" data-value="3em">3</div>
-            <div class="menu-item" data-value="4em">4</div>
-            <div class="menu-item" data-value="5em">5</div>
-          </div>
-        </div>
+        <bottom-row-spacing-dropdown class="edit-btn" />
+        <line-height-dropdown class="edit-btn" />
       </div>
       <div class="btn-group">
-        <button class="edit-btn divider">
-          <svg><use href="#divider" /></svg>
-        </button>
-        <div class="dropdown dropdown-list edit-btn">
-          <button class="dropdown-toggle">
-            <svg><use href="#list" /></svg>
-            <i class="icon-arrow"></i>
-          </button>
-          <div class="dropdown-menu">
-            <div
-              class="menu-item"
-              data-list-type="bulletList"
-              data-list-style-type="circle"
-            >
-              ○ 大圆圈
-            </div>
-            <div
-              class="menu-item"
-              data-list-type="bulletList"
-              data-list-style-type="disc"
-            >
-              ● 小黑点
-            </div>
-            <div
-              class="menu-item"
-              data-list-type="bulletList"
-              data-list-style-type="square"
-            >
-              ■ 小方块
-            </div>
-            <div
-              class="menu-item"
-              data-list-type="orderedList"
-              data-list-style-type="decimal"
-            >
-              1,2,3...
-            </div>
-            <div
-              class="menu-item"
-              data-list-type="orderedList"
-              data-list-style-type="lower-alpha"
-            >
-              a,b,c...
-            </div>
-            <div
-              class="menu-item"
-              data-list-type="orderedList"
-              data-list-style-type="lower-roman"
-            >
-              i,ii,iii...
-            </div>
-            <div
-              class="menu-item"
-              data-list-type="orderedList"
-              data-list-style-type="upper-alpha"
-            >
-              A,B,C...
-            </div>
-            <div
-              class="menu-item"
-              data-list-type="orderedList"
-              data-list-style-type="upper-roman"
-            >
-              I,II,III...
-            </div>
-          </div>
-        </div>
-        <div class="dropdown dropdown-float edit-btn">
-          <button class="dropdown-toggle">
-            <svg><use href="#floatLeft" /></svg>
-            <i class="icon-arrow"></i>
-          </button>
-          <div class="dropdown-menu">
-            <div class="menu-item" data-float="default">
-              <svg><use href="#floatLeft" /></svg>默认
-            </div>
-            <div class="menu-item" data-float="left">
-              <svg><use href="#floatLeft" /></svg>左浮动
-            </div>
-            <div class="menu-item" data-float="right">
-              <svg><use href="#floatRight" /></svg>右浮动
-            </div>
-          </div>
-        </div>
-        <button class="edit-btn code">
-          <svg><use href="#code" /></svg>
-        </button>
-        <div class="dropdown dropdown-emoji edit-btn">
-          <button class="dropdown-toggle">
-            <svg><use href="#emoji" /></svg>
-          </button>
-          <div class="dropdown-menu">
-            <div class="emoji-list"></div>
-          </div>
-        </div>
+        <divider-button class="edit-btn" />
+        <list-dropdown class="edit-btn" />
+        <float-dropdown class="edit-btn" />
+        <code-button class="edit-btn" />
+        <emoji-dropdown class="edit-btn" />
       </div>
     </div>
   </div>
@@ -289,33 +177,5 @@ import TopRowSpacingDropdown from "./components/top-row-spacing-dropdown.vue";
     bottom: 2px;
     border-radius: 1px;
   }
-}
-
-/* 表情菜单 start*/
-.dropdown-emoji .emoji-list {
-  display: flex;
-  flex-wrap: wrap;
-  width: 408px;
-  max-height: 440px;
-  padding: 6px 12px;
-  overflow-y: auto;
-}
-
-.dropdown-emoji .emoji-item {
-  padding: 5px;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.dropdown-emoji .emoji-item:hover {
-  transition: all 0.3s;
-  background-color: rgba(0 0 0 / 5%);
-}
-
-.dropdown-emoji .emoji-item .icon-emoji {
-  width: 32px;
-  height: 32px;
-  background-size: 100% auto;
-  background-image: url("@/src/images/sprite/emoji_sprite.png");
 }
 </style>
