@@ -86,7 +86,7 @@
   right: 9px;
   width: 26px;
   height: 26px;
-  background: url("@/src/images/icon/icon-image-link.png") no-repeat center;
+  background: url("@/assets/images/icon/icon-image-link.png") no-repeat center;
   background-size: contain;
 }
 
@@ -98,6 +98,6 @@
   right: 9px;
   width: 26px;
   height: 26px;
-  background: url("@/src/images/icon/icon-weapp-link.png") no-repeat center;
+  background: url("@/assets/images/icon/icon-weapp-link.png") no-repeat center;
   background-size: contain;
 }
