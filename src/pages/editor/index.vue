@@ -2,6 +2,7 @@
 import "@/assets/styles/tiptap-appmsg.css";
 import FunctionBar from "./FunctionBar/functionBar.vue";
 import Toolbar from "./Toolbar/toolbar.vue";
+import Sidebar from "./Sidebar/sidebar.vue";
 import { editor } from "./editor.js";
 
 const editorContainerRef = ref();
@@ -18,6 +19,7 @@ onMounted(() => {
     <function-bar />
   </div>
   <toolbar />
+  <sidebar />
   <div class="editor-wrapper">
     <div ref="editorContainerRef" class="editor-container">
       <div class="footer">
