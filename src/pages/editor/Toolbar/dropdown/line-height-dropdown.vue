@@ -24,16 +24,19 @@ const handleUpdateLineHeight = ({ editor, transaction }) => {
     // eslint-disable-next-line no-constant-condition
     while (true) {
       if (node.tagName === "SECTION" && node.style.lineHeight) {
+        console.log(123, node);
         lineHeight = node.style.lineHeight;
         break;
       } else if (node === editor.view.dom) {
+        console.log(666, node);
         lineHeight = "1.6em"; // 默认行高
         break;
       }
       node = node.parentNode;
     }
   }
-  currentLineHeight.value = +lineHeight.match(/\d+/)[0];
+  currentLineHeight.value = +lineHeight.match(/\d+(\.\d+)?/)[0];
+  console.log(lineHeight, currentLineHeight.value);
 };
 
 editor.on(
