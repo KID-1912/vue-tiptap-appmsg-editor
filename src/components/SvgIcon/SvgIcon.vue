@@ -8,7 +8,7 @@ const svgModules = import.meta.glob("./svg/**/*.svg", {
 });
 
 const SvgComponent = defineAsyncComponent(
-  svgModules[`/src/assets/images/svg/${props.name}.svg`]
+  svgModules[`./svg/${props.name}.svg`],
 );
 </script>
 

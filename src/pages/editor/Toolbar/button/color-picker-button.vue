@@ -36,7 +36,8 @@ onMounted(() => {
 });
 
 // 回显颜色状态
-const handleUpdateColorState = ({ editor }) => {
+const handleUpdateColorState = ({ editor, transaction }) => {
+  if (transaction.updated === 0) return;
   const colorValue = editor.getAttributes("textStyle").color;
   if (colorValue) {
     picker.setColor(colorValue, true);
@@ -48,7 +49,7 @@ const handleUpdateColorState = ({ editor }) => {
 };
 editor.on(
   "transaction",
-  throttle(handleUpdateColorState, 240, { leading: false })
+  throttle(handleUpdateColorState, 240, { leading: false }),
 );
 </script>
 

@@ -24,11 +24,9 @@ const handleUpdateLineHeight = ({ editor, transaction }) => {
     // eslint-disable-next-line no-constant-condition
     while (true) {
       if (node.tagName === "SECTION" && node.style.lineHeight) {
-        console.log(123, node);
         lineHeight = node.style.lineHeight;
         break;
       } else if (node === editor.view.dom) {
-        console.log(666, node);
         lineHeight = "1.6em"; // 默认行高
         break;
       }
@@ -36,12 +34,11 @@ const handleUpdateLineHeight = ({ editor, transaction }) => {
     }
   }
   currentLineHeight.value = +lineHeight.match(/\d+(\.\d+)?/)[0];
-  console.log(lineHeight, currentLineHeight.value);
 };
 
 editor.on(
   "transaction",
-  throttle(handleUpdateLineHeight, 240, { leading: false })
+  throttle(handleUpdateLineHeight, 240, { leading: false }),
 );
 </script>
 
